@@ -1,0 +1,128 @@
+﻿<Window x:Class="WPF_OPCUA_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_OPCUA_Client"
+        xmlns:viewmodels ="clr-namespace:WPF_OPCUA_Client.ViewModels"
+        xmlns:views ="clr-namespace:WPF_OPCUA_Client.Views"
+        mc:Ignorable="d"
+        Title="MainWindow"  Width="1280" Height="1024"  
+        Background="Black" WindowStyle="None" WindowState="Maximized">
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid  Margin="0" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="216"/>
+            <!-- Для логотипа или верхней панели -->
+            <RowDefinition/>
+            <!-- Основное содержимое -->
+            <RowDefinition Height="Auto" MinHeight="459"/>
+            <RowDefinition Height="Auto" MinHeight="233"/>
+            <!-- Нижняя панель -->
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/IMG/Back.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Button x:Name="btn1" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Height="72" Width="232" Click="btn1_Click" Visibility="Visible" BorderThickness="0,0,0,0" SnapsToDevicePixels="True" RenderTransformOrigin="0.539,-0.159">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/Button РАБОТА OFF.png" Stretch="Fill"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="btn2" Content="" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Height="72" Width="232" Click="btn2_Click"  Visibility="Visible" BorderThickness="0,0,0,0" SnapsToDevicePixels="True" RenderTransformOrigin="0.539,-0.159" Grid.Column="1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/Button Диагност OFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn3" Content="" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Height="72" Width="232" Click="btn3_Click" Visibility="Visible" BorderThickness="0,0,0,0" SnapsToDevicePixels="True" RenderTransformOrigin="0.539,-0.159" Grid.Column="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/Button Настройка OFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn4" Content="" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Height="72" Width="232" Click="btn4_Click" Visibility="Visible" BorderThickness="0,0,0,0" SnapsToDevicePixels="True" RenderTransformOrigin="0.539,-0.159" Grid.Column="3">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/Button История OFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn5" Content="" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Height="72" Width="232" Click="btn5_Click" Visibility="Visible" BorderThickness="0,0,0,0" SnapsToDevicePixels="True" RenderTransformOrigin="0.539,-0.159" Grid.Column="4">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/Button Инфо OFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnExit" Click="btnExit_Click" Grid.Column="4" Content="" HorizontalAlignment="Left" Margin="220,30,0,0" VerticalAlignment="Top" BorderThickness="0,0,0,0" RenderTransformOrigin="0.613,0.48" Height="36" Width="36">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/Icon Exit.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        
+        <DockPanel Grid.Column="4" LastChildFill="False">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="30,0,10,41">
+                <TextBlock Name="TimeText" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"  />
+                <TextBlock x:Name="DateText" FontSize="24" FontWeight="Bold"/>
+            </StackPanel>
+        </DockPanel>
+        <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Content="{Binding CurrentView}">
+            
+        </ContentControl>
+
+    </Grid>
+
+
+
+</Window>

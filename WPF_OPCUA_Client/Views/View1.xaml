@@ -1,0 +1,295 @@
+﻿<UserControl x:Class="WPF_OPCUA_Client.Views.View1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_OPCUA_Client.Views"
+             xmlns:viewmodels ="clr-namespace:WPF_OPCUA_Client.ViewModels"
+             xmlns:log="clr-namespace:WPF_OPCUA_Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1280"
+             PreviewKeyDown="UserControl_PreviewKeyDown"
+             PreviewKeyUp="UserControl_PreviewKeyUp">
+
+    <Grid x:Name="AllZone">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="78"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto" MinHeight="225" />
+            <RowDefinition Height="Auto" MinHeight="233"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="138*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/IMG/Work/ManMode.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Button x:Name="btn1" Click="btn1_Click" Opacity="0" Margin="50,17,1,0" Grid.Column="0" Grid.Row="0">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Button>
+        <Button x:Name="btn2" Click="btn2_Click" Opacity="0" Margin="5,17,1,0" Grid.Column="1" Grid.Row="0" IsEnabled="True">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Button>
+        <Button x:Name="btn3" Click="btn3_Click" Opacity="0" Margin="5,17,1,0" Grid.Column="2" Grid.Row="0">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Button>
+
+
+        <CheckBox x:Name="Checkbox0" Content="0.5 мм" Grid.Row="1" Margin="0,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+          FontSize="14" Width="100" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <CheckBox x:Name="Checkbox1" Content="1 мм" Grid.Row="1" Margin="0,45,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+          FontSize="14" Width="100" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <CheckBox x:Name="Checkbox2" Content="2 мм" Grid.Row="1" Margin="0,75,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+          FontSize="14" Width="100" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <CheckBox x:Name="Checkbox3" Content="5 мм" Grid.Row="1" Margin="0,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+          FontSize="14" Width="100" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <CheckBox x:Name="Checkbox4" Content="10 мм" Grid.Row="1" Margin="0,135,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+          FontSize="14" Width="100" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <CheckBox x:Name="Checkbox5" Content="20 мм" Grid.Row="1" Grid.RowSpan="2" Margin="0,165,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+          FontSize="14" Width="100" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <CheckBox x:Name="Checkbox6" Content="Непрерывно" Grid.Row="2" Margin="92,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+          FontSize="14" Width="120" Height="25">
+            <CheckBox.RenderTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+
+        <TextBlock x:Name="X_Axis" Grid.Row="2" Text="{Binding Axis2PositionText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,106,21,0" Width="113" Height="32" >
+
+        </TextBlock>
+        <TextBlock x:Name="Y_Axis" Grid.Row="2" Text="{Binding Axis3PositionText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,158,21,0" Width="113" >
+
+        </TextBlock>
+        <TextBlock x:Name="Z_Axis" Grid.Row="2" Text="{Binding Axis4PositionText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,210,21,0" Width="113" >
+
+        </TextBlock>
+        <TextBlock x:Name="Rotation" Grid.Row="2" Text="{Binding RotAxis1SpeedText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,260,21,0" Height="32" Width="79"/>
+        <Button x:Name="BtnClr1" PreviewMouseLeftButtonDown="BtnClr1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnClr1_PreviewMouseLeftButtonUp" Click="BtnClr1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="278,105,156,170" Width="89" Height="42" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnClrOff.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnClr2" PreviewMouseLeftButtonDown="BtnClr2_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnClr2_PreviewMouseLeftButtonUp" Click="BtnClr2_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="279,157,156,118" Width="89" Height="42" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnClrOff.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnClr3" PreviewMouseLeftButtonDown="BtnClr3_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnClr3_PreviewMouseLeftButtonUp" Click="BtnClr3_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="278,207,156,68" Width="89" Height="42" Grid.ColumnSpan="2" RenderTransformOrigin="0.573,1.286">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnClrOff.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnUp1" PreviewMouseLeftButtonDown="BtnUp1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnUp1_PreviewMouseLeftButtonUp" Click="BtnUp1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="142,118,230,143" Grid.Column="1" Width="102" Height="55" Grid.ColumnSpan="2" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrUpOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnDown1" PreviewMouseLeftButtonDown="BtnDown1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnDown1_PreviewMouseLeftButtonUp " Click="BtnDown1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="142,213,230,49" Grid.Column="1" Width="102" Height="55" Grid.ColumnSpan="2" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrDownOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnUp2" PreviewMouseLeftButtonDown="BtnUp2_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnUp2_PreviewMouseLeftButtonUp" Click="BtnUp2_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="65,118,67,143" Grid.Column="2" Width="102" Height="55" >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrUpOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnDown2" PreviewMouseLeftButtonDown="BtnDown2_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnDown2_PreviewMouseLeftButtonUp" Click="BtnDown2_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="65,213,67,48" Grid.Column="2" Width="102" Height="55">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrDownOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnUp3" PreviewMouseLeftButtonDown="BtnUp3_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnUp3_PreviewMouseLeftButtonUp" Click="BtnUp3_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="42,124,102,138" Grid.Column="3" Width="102" Height="55">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrUpOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnDown3" PreviewMouseLeftButtonDown="BtnDown3_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnDown3_PreviewMouseLeftButtonUp" Click="BtnDown3_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="42,214,102,48" Grid.Column="3" Width="102" Height="55">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrDownOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnLeft1" PreviewMouseLeftButtonDown="BtnLeft1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnLeft1_PreviewMouseLeftButtonUp" Click="BtnLeft1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="207,143,218,72" Grid.Column="2" Width="55" Height="102" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrLeftOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnRight1" PreviewMouseLeftButtonDown="BtnRight1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnRight1_PreviewMouseLeftButtonUp" Click="BtnRight1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="2" Margin="157,141,34,70" Grid.Column="3" Width="55" Height="102">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrRightOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnH1" Click="BtnH1_Click" Width="134" Height="84" Grid.Column="4" Grid.Row="2" Margin="48,120,94,113" BorderThickness="0,0,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnHOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnZ1" Click="BtnZ1_Click"  Width="134" Height="84" Grid.Column="4" Grid.Row="2" Margin="48,211,94,22" BorderThickness="0,0,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnZOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="amperage" Grid.Row="3" Text="{Binding AmperageText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,108,0" />
+        <TextBlock x:Name="voltage" Grid.Row="3" Text="{Binding VoltageText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,148,108,0" RenderTransformOrigin="-0.104,0.407" />
+        <TextBlock x:Name="power" Grid.Row="3" Text="{Binding PowerText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,204,0" RenderTransformOrigin="0.5,0.5" Width="85" Grid.ColumnSpan="2" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="frequency" Grid.Row="3" Text="{Binding FreqText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,148,209,0" Grid.ColumnSpan="2" />
+        <Image x:Name="SprayerLed" Source="{Binding SprayerLedSource}" Grid.Row="3" Grid.Column="1" Width="63" Height="62" Margin="88,60,88,111"/>
+        <Image x:Name="HeaterLed" Source="{Binding HeaterLedSource}" Grid.Row="3" Grid.Column="1" Width="63" Height="62" Margin="159,60,18,111"/>
+        <Image x:Name="AlarmsLed" Source="{Binding AlarmsLedSource}" Grid.Row="3" Grid.Column="1" Width="63" Height="62" Margin="230,60,181,111" Grid.ColumnSpan="2"/>
+        <TextBlock Text="{Binding RunTime}" Grid.Row="4" Grid.Column="1" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="150,150,0,0"></TextBlock>
+        <log:LogPanel 
+            Grid.Column="2" 
+            Grid.ColumnSpan="3" 
+            Grid.Row="3" 
+            x:Name="LogContainer"
+            Width="566"
+            Height="116"
+            HorizontalAlignment="Left"  
+            VerticalAlignment="Top" Margin="103,61,0,0"/>
+
+
+    </Grid>
+</UserControl>

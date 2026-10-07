@@ -1,0 +1,361 @@
+﻿<UserControl x:Class="WPF_OPCUA_Client.Views.View4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_OPCUA_Client.Views"
+             DataContext="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1280">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="84"/>
+            <RowDefinition />
+            <RowDefinition Height="203"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="283*"/>
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="236*"/>
+            <ColumnDefinition Width="524*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/IMG/Modes/Diagnostic.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="65,0,65,17" >
+
+            <StackPanel Name="Diagnostic" Grid.RowSpan="3" Grid.ColumnSpan="2" Height="739" >
+
+                <StackPanel Orientation="Horizontal" Margin="40,20,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя вперед
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndForw" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                                Переключатель "Зажим вверх"
+                    </TextBlock>
+                    <TextBlock x:Name="ClampUp" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя назад
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndBack" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Зажим вниз"
+                    </TextBlock>
+                    <TextBlock x:Name="ClampDowm" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя вправо
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndRight" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Индуктор вверх"
+                    </TextBlock>
+                    <TextBlock x:Name="IndUp" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя влево
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndLeft" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Индуктор вниз"
+                    </TextBlock>
+                    <TextBlock x:Name="IndDown" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя индуктор вниз
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndDown" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Индуктор влево"
+                    </TextBlock>
+                    <TextBlock x:Name="IndLeft" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя индуктор вверх
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndUp" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Индуктор вправо"
+                    </TextBlock>
+                    <TextBlock x:Name="IndRight" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя зажим вниз
+                    </TextBlock>
+                    <TextBlock x:Name="LimitClampDown" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Индуктор вперед"
+                    </TextBlock>
+                    <TextBlock x:Name="IndForw" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock  FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Состояние концевого выключателя зажим вверх
+                    </TextBlock>
+                    <TextBlock x:Name="LimitClampUp" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Замкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+        
+                            Переключатель "Индуктор назад"
+                    </TextBlock>
+                    <TextBlock x:Name="IndBack" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+        
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+        
+                            Состояние концевого выключателя ручного зажима
+                    </TextBlock>
+                    <TextBlock x:Name="LimitIndDown2" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Разомкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Вращение влево"
+                    </TextBlock>
+                    <TextBlock x:Name="RotLeft" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">                  
+                            Состояние концевого выключателя ванны "Нижний уровень"
+                    </TextBlock>
+                    <TextBlock x:Name="LowerLimit" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Разомкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Вращение в право"
+                    </TextBlock>
+                    <TextBlock x:Name="RotRight" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">                  
+                            Состояние концевого выключателя ванны "Верхний уровень"
+                    </TextBlock>
+                    <TextBlock x:Name="MiddleLimit" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Разомкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Ручной/Автомат"
+                    </TextBlock>
+                    <TextBlock x:Name="Automat" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">                  
+                            Состояние концевого выключателя ванны "Аварийный"
+                    </TextBlock>
+                    <TextBlock x:Name="HighestLimit" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200">
+                            Разомкнут
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Переключатель "Спреер"
+                    </TextBlock>
+                    <TextBlock x:Name="Sprayer" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock  FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Связь сервопривод индуктора ось "X"
+                    </TextBlock>
+                    <TextBlock x:Name="Axis2Connection" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" Foreground="#FF817F00">
+
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Кнопка "Пуск"
+                    </TextBlock>
+                    <TextBlock x:Name="Start" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Нет
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Связь сервопривод индуктора ось "Y"
+                    </TextBlock>
+                    <TextBlock x:Name="Axis3Connection" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" Foreground="#FF817F00">
+
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Кнопка "Стоп"
+                    </TextBlock>
+                    <TextBlock x:Name="Stop" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Да
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Связь сервопривод индуктора ось "Z"
+                    </TextBlock>
+                    <TextBlock x:Name="Axis4Connection" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" Foreground="#FF817F00">
+
+                    </TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="300">
+                            Кнопка "Аварийный стоп"
+                    </TextBlock>
+                    <TextBlock x:Name="ProgrammBlock" FontSize="14" FontWeight="Bold" TextAlignment="Left">
+                            Да
+                    </TextBlock>
+                </StackPanel>
+
+
+
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Связь сервопривод зажима
+                    </TextBlock>
+                    <TextBlock x:Name="Axis5Connection" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" Foreground="#FF817F00">
+
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Связь сервопривод вращения
+                    </TextBlock>
+                    <TextBlock x:Name="Axis1Connection" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" Foreground="#FF817F00">
+
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Связь П.Ч.
+                    </TextBlock>
+                    <TextBlock x:Name="HeaterConnection" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" Foreground="#FFFD083B">
+                            Пауза 1с..
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Проток охлаждающей жидкости П.Ч.
+                    </TextBlock>
+                    <TextBlock x:Name="ProtokPCh" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" >
+                            Есть
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Проток охлаждающей жидкости ТСУ
+                    </TextBlock>
+                    <TextBlock x:Name="ProtokTSU" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" >
+                            Есть
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Проток охлаждающей жидкости Индуктор
+                    </TextBlock>
+                    <TextBlock x:Name="ProtokInd" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" >
+                            Есть
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Вяпрямление напряжение П.Ч.
+                    </TextBlock>
+                    <TextBlock x:Name="VprPch" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" >
+                            0 В
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Скорость перемещени зажима
+                    </TextBlock>
+                    <TextBlock x:Name="Axis5Vel" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" >
+                            0
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Скорость перемещени Индуктора по "X"
+                    </TextBlock>
+                    <TextBlock x:Name="Axis2Vel" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="200" >
+                            0
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5" Width="600" HorizontalAlignment="Left">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Скорость перемещени Индуктора по "Y"
+                    </TextBlock>
+                    <TextBlock x:Name="Axis3Vel" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="50" >
+                            0
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,5" HorizontalAlignment="Left" Width="600">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Скорость перемещени Индуктора по "Z"
+                    </TextBlock>
+                    <TextBlock x:Name="Axis4Vel" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="50" >
+                            0
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="40,0,0,5" HorizontalAlignment="Left" Width="600">
+                    <TextBlock FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="500">
+                            Скорость вращения
+                    </TextBlock>
+                    <TextBlock x:Name="Axis1Vel" FontSize="14" FontWeight="Bold" TextAlignment="Left" Width="50" >
+                            0
+                    </TextBlock>
+
+                </StackPanel>
+
+            </StackPanel>
+
+
+
+
+        </ScrollViewer>
+        
+
+        <ContentControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" Content="{Binding CurrentView}">
+
+        </ContentControl>
+    </Grid>
+</UserControl>

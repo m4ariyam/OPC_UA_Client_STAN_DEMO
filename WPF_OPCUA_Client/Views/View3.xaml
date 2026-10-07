@@ -1,0 +1,542 @@
+﻿<UserControl x:Class="WPF_OPCUA_Client.Views.View3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_OPCUA_Client.Views"
+             xmlns:log="clr-namespace:WPF_OPCUA_Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1280"
+             PreviewKeyDown="UserControl_PreviewKeyDown"
+             PreviewKeyUp="UserControl_PreviewKeyUp">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="78"/>
+
+            <RowDefinition />
+            <RowDefinition Height="88" />
+            <RowDefinition Height="229"/>
+            <RowDefinition Height="Auto" MinHeight="233"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="138*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/IMG/Work/GearHardening.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Button x:Name="btn1" Click="btn1_Click" Opacity="0" Margin="50,17,1,0" Grid.Column="0" Grid.Row="0">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Button>
+        <Button x:Name="btn2" Click="btn2_Click" Opacity="0" Margin="5,17,1,0" Grid.Column="1" Grid.Row="0" IsEnabled="True">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Button>
+        <Button x:Name="btn3" Click="btn3_Click" Opacity="0" Margin="5,17,1,0" Grid.Column="2" Grid.Row="0">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Button>
+        <Button x:Name="NewReg" Click="NewReg_Click" Grid.Column="4" Grid.Row="0" Height="45" Width="45" Margin="0,0,180,0" BorderThickness="0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/NewReg.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnSave" Click="btnSave_Click" Grid.Column="4" Grid.Row="0" Height="45" Width="45" Margin="0,0,50,0" BorderThickness="0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/IconSave.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="OpenReg" Click="OpenReg_Click" Grid.Column="4" Grid.Row="0" Height="45" Width="45" Margin="80,0,0,0" BorderThickness="0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/OpenReg.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+
+
+
+        <TextBlock x:Name="X_Axis" Grid.Row="3" Text="{Binding Axis2PositionText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,19,21,0" Height="32" Width="113" />
+        <TextBlock x:Name="Y_Axis" Grid.Row="3" Text="{Binding Axis3PositionText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,71,21,0" Height="32" Width="113" />
+        <TextBlock x:Name="Z_Axis" Grid.Row="3" Text="{Binding Axis4PositionText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,123,21,0" Height="32" Width="113" />
+        <TextBlock x:Name="Rotation" Grid.Row="3" Text="{Binding RotationText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,173,21,0" Height="32" Width="77" />
+        <Button x:Name="BtnClr1" PreviewMouseLeftButtonDown="BtnClr1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnClr1_PreviewMouseLeftButtonUp" Click="BtnClr1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="278,18,156,169" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnClrOff.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnClr2" PreviewMouseLeftButtonDown="BtnClr2_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnClr2_PreviewMouseLeftButtonUp" Click="BtnClr2_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="279,70,156,117" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnClrOff.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnClr3" PreviewMouseLeftButtonDown="BtnClr3_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnClr3_PreviewMouseLeftButtonUp" Click="BtnClr3_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="278,120,156,67" Grid.ColumnSpan="2" RenderTransformOrigin="0.573,1.286">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnClrOff.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnUp1" PreviewMouseLeftButtonDown="BtnUp1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnUp1_PreviewMouseLeftButtonUp" Click="BtnUp1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="142,34,230,140" Grid.Column="1" Grid.ColumnSpan="2" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrUpOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnDown1" PreviewMouseLeftButtonDown="BtnDown1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnDown1_PreviewMouseLeftButtonUp" Click="BtnDown1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="142,129,230,45" Grid.Column="1" Grid.ColumnSpan="2" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrDownOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnUp2" PreviewMouseLeftButtonDown="BtnUp2_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnUp2_PreviewMouseLeftButtonUp" Click="BtnUp2_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="65,34,67,140" Grid.Column="2" >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrUpOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnDown2" PreviewMouseLeftButtonDown="BtnDown2_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnDown2_PreviewMouseLeftButtonUp" Click="BtnDown2_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="65,130,67,44" Grid.Column="2">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrDownOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnUp3" PreviewMouseLeftButtonDown="BtnUp3_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnUp3_PreviewMouseLeftButtonUp" Click="BtnUp3_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="42,40,102,134" Grid.Column="3">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrUpOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnDown3" PreviewMouseLeftButtonDown="BtnDown3_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnDown3_PreviewMouseLeftButtonUp" Click="BtnDown3_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="42,130,102,44" Grid.Column="3">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrDownOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnLeft1" PreviewMouseLeftButtonDown="BtnLeft1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnLeft1_PreviewMouseLeftButtonUp" Click="BtnLeft1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="207,59,218,68" Grid.Column="2" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrLeftOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnRight1" PreviewMouseLeftButtonDown="BtnRight1_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="BtnRight1_PreviewMouseLeftButtonUp" Click="BtnRight1_Click" Visibility="Visible" BorderThickness="0,0,0,0" Grid.Row="3" Margin="157,59,34,68" Grid.Column="3">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/АrrRightOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnH1" Click="BtnH1_Click" Grid.Column="4" Grid.Row="3" Margin="48,36,94,109" BorderThickness="0,0,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnHOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="BtnZ1" Click="BtnZ1_Click" Grid.Column="4" Grid.Row="3" Margin="48,127,94,18" BorderThickness="0,0,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Background>
+                <ImageBrush ImageSource="/IMG/BtnZOFF.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="amperage" Grid.Row="4" Text="{Binding AmperageText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,108,0" />
+        <TextBlock x:Name="voltage" Grid.Row="4" Text="{Binding VoltageText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,149,108,0" RenderTransformOrigin="-0.104,0.407"  />
+        <TextBlock x:Name="power" Grid.Row="4" Text="{Binding PowerText}"  FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,80,209,0" Grid.ColumnSpan="2" />
+        <TextBlock x:Name="frequency" Grid.Row="4" Text="{Binding FreqText}" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,149,209,0" Grid.ColumnSpan="2" />
+        <Image Source="{Binding SprayerLedSource}" Grid.Row="4" Grid.Column="1" Margin="88,60,88,111"/>
+        <Image Source="{Binding HeaterLedSource}" Grid.Row="4" Grid.Column="1" Margin="159,60,18,111"/>
+        <Image Source="{Binding AlarmsLedSource}" Grid.Row="4" Grid.Column="1" Margin="230,60,181,111" Grid.ColumnSpan="2"/>
+        <TextBlock Text="{Binding RunTime}" Grid.Row="4" Grid.Column="1" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="150,150,0,0"></TextBlock>
+        <ScrollViewer VerticalScrollBarVisibility="Disabled" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="65,8,65,4" Background="#FFEFEFEF" BorderThickness="0" >
+            <Grid x:Name="AllZone" PreviewKeyDown="AllZone_PreviewKeyDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27*"/>
+                    <RowDefinition Height="110.5*"/>
+                    <RowDefinition Height="110.5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="123*"/>
+                    <ColumnDefinition Width="107*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="115*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Начало<LineBreak/>
+                                зоны ось Z
+                        </TextBlock>
+                        <TextBox BorderThickness="0" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="0,10" >
+                            10
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2">
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Конец<LineBreak/>
+                                зоны ось Z
+                        </TextBlock>
+                        <TextBox BorderThickness="0" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="0,10" >
+                            60
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock Text="НАГРЕВ"  TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,20" />
+                        <ComboBox Width="70" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center"  Margin="0,10"  FontSize="12" FontWeight="Bold" IsEditable="True" IsReadOnly="True" Text="ВКЛ." >
+                            <ComboBoxItem Content="ОТКЛ." />
+                            <ComboBoxItem Content="ВКЛ." />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock Text="ЗАКАЛКА"  TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,20" />
+                        <ComboBox Width="70" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center"  Margin="0,10"  FontSize="12" FontWeight="Bold" IsEditable="True" IsReadOnly="True" Text="ВКЛ." >
+                            <ComboBoxItem Content="ОТКЛ." />
+                            <ComboBoxItem Content="ВКЛ." />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                             Скорость<LineBreak/>
+                                перемещения<LineBreak/> 
+                                    ось Z
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <TextBox Width="50" BorderThickness="0" FontSize="12" FontWeight="Bold" TextAlignment="Center" Background="#FFEFEFEF" Text="1000"/>
+                            <TextBlock Text="мм/мин" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="5" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Задержка<LineBreak/>
+                                подачи З.Ж.
+                        </TextBlock>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <TextBox Text="1" Width="50" BorderThickness="0" FontSize="12" FontWeight="Bold" TextAlignment="Center" Background="#FFEFEFEF" />
+                            <TextBlock Text="сек" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="6" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Задержка<LineBreak/>
+                                начала<LineBreak/> 
+                                    движ. инд.
+                        </TextBlock>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <TextBox Text="0" Width="50" BorderThickness="0" FontSize="12" FontWeight="Bold" TextAlignment="Center" Background="#FFEFEFEF" />
+                            <TextBlock Text="сек" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="7" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Пауза после<LineBreak/>
+                                окончания<LineBreak/> 
+                                    зоны
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <TextBox Text="0" Width="50" BorderThickness="0" FontSize="12" FontWeight="Bold" TextAlignment="Center" Background="#FFEFEFEF" />
+                            <TextBlock Text="сек" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="8" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Ток<LineBreak/>
+                                ТВЧ
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <TextBox Text="7" Width="50" BorderThickness="0" FontSize="12" FontWeight="Bold" TextAlignment="Center" Background="#FFEFEFEF" />
+                            <TextBlock Text="А" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="9" BorderBrush="Black" BorderThickness="0,1,1,1" Margin="0,0,0,110" Grid.RowSpan="2" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Мощность<LineBreak/>
+                                ТВЧ
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <TextBox Text="8" Width="50" BorderThickness="0" FontSize="12" FontWeight="Bold" TextAlignment="Center" Background="#FFEFEFEF" />
+                            <TextBlock Text="кВт" VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1,0,1,1" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Начало<LineBreak/>
+                                зоны ось X
+                        </TextBlock>
+                        <TextBox BorderThickness="0" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="0,10" >
+                            20
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,0">
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Конец<LineBreak/>
+                                зоны ось X
+                        </TextBlock>
+                        <TextBox BorderThickness="0" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="0,10" >
+                            25
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,0" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Колличество<LineBreak/>
+                                зубьев на<LineBreak/> 
+                                    оборот
+                        </TextBlock>
+                        <TextBox x:Name="TeethTextBox" LostFocus="TeethTextBox_LostFocus" BorderThickness="0" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="0,-10" >
+                            2
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,1,0" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10">
+                            Угол поворота<LineBreak/>
+                            градусы <Run/> минуты
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+                            <!-- Первый TextBox для градусов -->
+                            <TextBox
+                                x:Name="DegreesTextBox"
+                                LostFocus="AngleTextBox_LostFocus"
+                                Width="50" 
+                                BorderThickness="0" 
+                                FontSize="12" 
+                                FontWeight="Bold" 
+                                VerticalAlignment="Center" 
+                                TextAlignment="Center" 
+                                Background="#FFEFEFEF"
+                                Text="180"/>
+                            <TextBlock 
+                                Text="|" 
+                                FontSize="14" 
+                                FontWeight="Bold" 
+                                VerticalAlignment="Center" 
+                                Margin="5,0"/>
+                            <!-- Второй TextBox для минут -->
+                            <TextBox 
+                                x:Name="MinutesTextBox"
+                                LostFocus="AngleTextBox_LostFocus"
+                                Width="50" 
+                                BorderThickness="0" 
+                                FontSize="12" 
+                                FontWeight="Bold" 
+                                VerticalAlignment="Center" 
+                                TextAlignment="Center" 
+                                Background="#FFEFEFEF"
+                                Text="0"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="0,0,1,0" >
+                    <StackPanel>
+                        <TextBlock Text="ВРАЩЕНИЕ"  TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,20" />
+                        <ComboBox  SelectionChanged="ComboBox_SelectionChanged" Width="80" VerticalAlignment="Center"  Margin="0,10"  FontSize="12" FontWeight="Bold" IsEditable="True" IsReadOnly="True" Text="ВПРАВО" >
+                            <ComboBoxItem Content="ВПРАВО" />
+                            <ComboBoxItem Content="ВЛЕВО" />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="5" BorderBrush="Black" BorderThickness="0,0,1,0" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10" >
+                            Колличество<LineBreak/>
+                                закаливаемых<LineBreak/> 
+                                    зубьев
+                        </TextBlock>
+                        <TextBox BorderThickness="0" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="0,-10" >
+                            100
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="4" BorderBrush="Black" BorderThickness="0,0,1,0" >
+                    <StackPanel>
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="10,10" >
+                            Текущий<LineBreak/>
+                                закаливаемый<LineBreak/> 
+                                    зубец
+                        </TextBlock>
+                        <TextBox x:Name="ToothCount" BorderThickness="0" IsReadOnly="True" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Right" SelectionTextBrush="#FFEFEFEF" Background="#FFEFEFEF" Margin="50,-10" >
+                            2
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <GroupBox Grid.ColumnSpan="10" Grid.RowSpan="3">
+
+                    <WrapPanel Height="248" Margin="-3,0,-23,0" >
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                            <TextBlock Text="Режим работы:" FontSize="16"
+                                    FontWeight="Bold" 
+                            />
+                            <TextBlock x:Name="ProjectName"
+                                           Text="" FontSize="14"
+                                           VerticalAlignment="Bottom"
+                                           TextAlignment="Center"
+                                           Margin="10,0,0,0"
+                            />
+                           </StackPanel>
+                        <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="2" 
+                                    X1="0" Y1="0"
+                                    X2="1140" Y2="0"
+                                    Stroke="Black"
+                                    StrokeThickness="1" 
+                                    Width="1140" Height="2"/>
+                    </WrapPanel>
+                </GroupBox>
+            </Grid>
+        </ScrollViewer>
+        <log:LogPanel 
+    Grid.Column="2" 
+    Grid.ColumnSpan="3" 
+    Grid.Row="4" 
+    x:Name="LogContainer"
+    Width="566"
+    Height="116"
+    HorizontalAlignment="Left"  
+    VerticalAlignment="Top" Margin="103,61,0,0"/>
+    </Grid>
+</UserControl>

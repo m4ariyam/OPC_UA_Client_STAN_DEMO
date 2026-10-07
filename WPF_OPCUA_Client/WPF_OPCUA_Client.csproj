@@ -1,0 +1,207 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Иконка программы.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Back.png" />
+    <None Remove="Button Инфо OFF.png" />
+    <None Remove="Button История OFF.png" />
+    <None Remove="Button Настройка OFF.png" />
+    <None Remove="Button РАБОТА OFF.png" />
+    <None Remove="IMG\BtnClrOFF.png" />
+    <None Remove="IMG\BtnClrON.png" />
+    <None Remove="IMG\BtnHOFF.png" />
+    <None Remove="IMG\BtnHON.png" />
+    <None Remove="IMG\BtnZOFF.png" />
+    <None Remove="IMG\BtnZON.png" />
+    <None Remove="IMG\Button Диагност ON.png" />
+    <None Remove="IMG\Button Инфо ON.png" />
+    <None Remove="IMG\Button История ON.png" />
+    <None Remove="IMG\Button Настройка ON.png" />
+    <None Remove="IMG\Button РАБОТА ON.png" />
+    <None Remove="IMG\Icon Exit.png" />
+    <None Remove="IMG\IconSave.png" />
+    <None Remove="IMG\IconSaveON.png" />
+    <None Remove="IMG\LED1OFF.png" />
+    <None Remove="IMG\LED1ON.png" />
+    <None Remove="IMG\LED2OFF.png" />
+    <None Remove="IMG\LED2ON.png" />
+    <None Remove="IMG\LED3Off.png" />
+    <None Remove="IMG\LED3On.png" />
+    <None Remove="IMG\Modes\Diagnostic.png" />
+    <None Remove="IMG\Modes\History.png" />
+    <None Remove="IMG\Modes\Info.png" />
+    <None Remove="IMG\Modes\Options.png" />
+    <None Remove="IMG\NewReg.png" />
+    <None Remove="IMG\NewRegON.png" />
+    <None Remove="IMG\OpenReg.png" />
+    <None Remove="IMG\OpenRegON.png" />
+    <None Remove="IMG\Work\GearHardening.png" />
+    <None Remove="IMG\Work\ManMode.png" />
+    <None Remove="IMG\Work\ShaftHardening.png" />
+    <None Remove="IMG\АrrDownOFF.png" />
+    <None Remove="IMG\АrrDownON.png" />
+    <None Remove="IMG\АrrLeftOFF.png" />
+    <None Remove="IMG\АrrLeftON.png" />
+    <None Remove="IMG\АrrRightOFF.png" />
+    <None Remove="IMG\АrrRightON.png" />
+    <None Remove="IMG\АrrUpOFF.png" />
+    <None Remove="IMG\АrrUpON.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Иконка программы.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpcUaHelper" Version="2.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="IMG\BtnClrOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\BtnClrON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\BtnHOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\BtnHON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\BtnZOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\BtnZON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\IconSave.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\IconSaveON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\LED1OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\LED1ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\LED2OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\LED2ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\LED3Off.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\LED3On.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Modes\History.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Back.png" />
+    <Resource Include="IMG\Back.png" />
+    <Resource Include="IMG\Button Диагност OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button Диагност ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button Инфо OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button Инфо ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button История OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button История ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button Настройка OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button Настройка ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button РАБОТА OFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Button РАБОТА ON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Icon Exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Modes\Diagnostic.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Modes\Info.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Modes\Options.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\NewReg.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\NewRegON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\OpenReg.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\OpenRegON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Work\GearHardening.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Work\ManMode.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\Work\ShaftHardening.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrDownOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrDownON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrLeftOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrLeftON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrRightOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrRightON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrUpOFF.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\АrrUpON.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

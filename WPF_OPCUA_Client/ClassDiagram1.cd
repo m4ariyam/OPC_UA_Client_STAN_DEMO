@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WPF_OPCUA_Client.ViewModels.MainViewModel" Collapsed="true">
+    <Position X="12.25" Y="3.75" Width="1.5" />
+    <AssociationLine Name="_view2" Type="WPF_OPCUA_Client.Views.View2" ManuallyRouted="true">
+      <Path>
+        <Point X="12.25" Y="4.031" />
+        <Point X="11.092" Y="4.031" />
+        <Point X="11.092" Y="3.067" />
+        <Point X="10.25" Y="3.067" />
+        <Point X="10.25" Y="4.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.856" Y="0.181" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_viewCheckTimer" Type="System.Windows.Threading.DispatcherTimer" ManuallyRouted="true">
+      <Path>
+        <Point X="12.75" Y="3.75" />
+        <Point X="12.75" Y="2.622" />
+        <Point X="8.963" Y="2.622" />
+        <Point X="8.963" Y="2.453" />
+        <Point X="8.5" Y="2.453" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.841" Y="-0.163" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAQAIgACAAIeJ5BAoSWQgIgAoAAAAFBRGaAAV0pAAYA=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_view1" />
+      <Field Name="_view2" />
+      <Field Name="_view3" />
+      <Field Name="_view4" />
+      <Field Name="_view5" />
+      <Field Name="_view6" />
+      <Field Name="_view7" />
+      <Field Name="_viewCheckTimer" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View1" Collapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EMCAACDciAAUABFSAi4AKAhQMAEBAYAAhkNhAggGYgE=</HashCode>
+      <FileName>Views\View1.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View2" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EMKABADciAIQABFSIi4AKgBQMAEBAbAQhkNgAggOYgA=</HashCode>
+      <FileName>Views\View2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View3" Collapsed="true">
+    <Position X="8.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UMSAEEzcgAACAhHSIjIAKwBAMFEBAZAghkNgAgBOYoA=</HashCode>
+      <FileName>Views\View3.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View4" Collapsed="true">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAACAAAAAAAAAAABAAEEACAAAAAIAAAA=</HashCode>
+      <FileName>Views\View4.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View5" Collapsed="true">
+    <Position X="8.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAIAAAAAAEAEIBAIJAAEhQBAQhAUgBSAgQKAACIrA=</HashCode>
+      <FileName>Views\View5.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View6" Collapsed="true">
+    <Position X="8.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAwRQSsIQAAIEAFJACCGgABCgBAAgAAkAAkwCMAIBUA=</HashCode>
+      <FileName>Views\View6.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Views.View7" Collapsed="true">
+    <Position X="8.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\View7.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.OpcUaManager" Collapsed="true">
+    <Position X="15" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAEAAABAAAIAAAAAAAAgAAAAAAAAAAAQ=</HashCode>
+      <FileName>OpcUaManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.MainWindow" Collapsed="true">
+    <Position X="12.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAEfEEAAAAhAAAAAAAAAAAEAAABABAAAAAAAABA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="opcManager" />
+      <Field Name="timer" />
+      <Field Name="_activeButton" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="15.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Threading.DispatcherTimer" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Controls.Button" Collapsed="true">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Controls.ContentControl" Collapsed="true">
+    <Position X="18.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Controls.UserControl" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WPF_OPCUA_Client.Classes.FileManager" Collapsed="true">
+    <Position X="18.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAABAAAIAQAAAAAAIAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\FileManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WPF_OPCUA_Client.LogPanel" Collapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <AssociationLine Name="_logTimer" Type="System.Windows.Threading.DispatcherTimer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="6.25" />
+        <Point X="6.25" Y="2.281" />
+        <Point X="7" Y="2.281" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAEQQEAACAgAAFJABCAgAAAABAAACAgAAAgAAEAAEA=</HashCode>
+      <FileName>LogPanel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_logTimer" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
